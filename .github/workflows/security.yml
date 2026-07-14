@@ -4,9 +4,10 @@ on:
   pull_request:
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   security-events: write
-  actions: read
+  actions: write
+  issues: write
 jobs:
   security:
     uses: cochecheee/sast-action/.github/workflows/sast-ci.yml@master
