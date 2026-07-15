@@ -4,10 +4,10 @@ on:
   pull_request:
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
   security-events: write
-  actions: write
-  issues: write
+  actions: read
+  issues: write        
 jobs:
   security:
     uses: cochecheee/sast-action/.github/workflows/sast-ci.yml@master
@@ -18,3 +18,4 @@ jobs:
     secrets:
       dashboard_url:   ${{ secrets.MCP_GATEWAY_URL }}
       dashboard_token: ${{ secrets.MCP_WEBHOOK_TOKEN }}
+      nvd_api_key:     ${{ secrets.NVD_API_KEY }}
